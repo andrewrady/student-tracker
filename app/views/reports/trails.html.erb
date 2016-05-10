@@ -1,0 +1,36 @@
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <div class="row">
+      <div class="large-8 large-centered columns">
+        <%# @totalFees %>
+        <h1>Trail Students </h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th class='rank_row'>Rank</th>
+              <th class='rank_row'>Size</th>
+              <th class='rank_row'>Age</th>
+              <th class='address_row'>Address</th>
+              <th class='phone_row'>Phone</th>
+              <th class='amount_row'>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @students.each do |student| %>
+              <tr>
+                <td><%=  link_to student.name, student_path(student) %> </td>
+                <td class='rank_row'><%=  student.rank %></td>
+                <td class='rank_row'><%=  student.size %></td>
+                <td class='rank_row'><%=  student.age %></td>
+                <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
+                <td class='phone_row'><%=  student.phone %></td>
+                <td class='amount_row'><%= student.trail%></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <a class="exit-off-canvas"></a>
+  </div>

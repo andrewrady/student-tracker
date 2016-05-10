@@ -1,0 +1,37 @@
+<div class="row">
+	<h5>Track your students and really know whats going on in your school</h5>
+	<hr>
+	<div class="small-6 large-4 columns">
+		<i class="fa fa-laptop fa-5x"></i>
+  		<h3>Easy to use</h3>
+  		<p>Many applciations out there can track your students, but are a pain to use. Using Student track is easy to use weather your on a desktop or your phone.</p>
+	</div>
+	<div class="small-6 large-4 columns">
+		<i class="fa fa-bar-chart fa-5x"></i>
+		<h3>Track Students</h3>
+		<p>Get all the information that is needed to run a studio. Know which students are active, a prospect, on hold or who have quit.</p>
+	</div>
+	<div class="small-12 large-4 columns">
+		<i class="fa fa-building fa-5x"></i>
+		<h3>Know your School</h3>
+		<p>Any business proffesional will tell you to track everything! Knowing your student base is not different. We all most know where are studios are financially so we can continue to teach.</p>
+	</div>
+</div>
+
+<div class="row">
+	
+</div>
+
+<div id="myModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+	<h2>Login</h2>
+	<%= form_for(:user, :url => session_path(:user)) do |f| %>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+		<%= f.check_box :remember_me %>
+		<%= f.label :remember_me %><br>
+		<%= f.submit 'Sign in', :class => 'button' %><br>
+  <%= link_to "Forgot your password?", new_password_path(:user) %>
+	<% end %>
+</div>

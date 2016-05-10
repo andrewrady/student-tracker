@@ -1,0 +1,5 @@
+<div class='add_wrapper student'>
+  <h1>Edit</h1>
+  <%= render 'form' %>
+  <%= link_to 'Delete', student_path(@student), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'button alert' %>
+</div>

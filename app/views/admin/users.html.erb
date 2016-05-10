@@ -1,0 +1,27 @@
+<div class="row client-container">
+	<div class="large-8 large-centered columns">
+		<h1>All users</h1>
+		<table>
+		  <thead>
+		    <tr>
+		      <th class='rank_row'>email</th>
+					<th class='rank_row'>username</th>
+		      <th class='size_row'>user id</th>
+		      <th class='age_row'>Created</th>
+		      <th class='address_row'>Last Sign Up Location</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @users.each do |user| %>
+		      <tr>
+		        <td><%= link_to user.email, users_admin_path(user) %> </td>
+						<td class='username_row'><%=  user.username %></td>
+		        <td class='rank_row'><%=  user.id %></td>
+		        <td class='size_row'><%=  user.created_at %></td>
+		        <td class='age_row'><%=  user.last_sign_in_ip %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>

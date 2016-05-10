@@ -1,0 +1,74 @@
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <div class="row">
+      <div class="large-8 large columns">
+        <%# @totalFees %>
+        <h1>Students On Hold</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th class='rank_row'>Rank</th>
+              <th class='rank_row'>Size</th>
+              <th class='rank_row'>Age</th>
+              <th class='address_row'>Address</th>
+              <th class='phone_row'>Phone</th>
+              <th class='amount_row'>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @students.each do |student| %>
+              <tr>
+                <td><%=  link_to student.name, student_path(student) %> </td>
+                <td class='rank_row'><%=  student.rank %></td>
+                <td class='rank_row'><%=  student.size %></td>
+                <td class='rank_row'><%=  student.age %></td>
+                <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
+                <td class='phone_row'><%=  student.phone %></td>
+                <td class='amount_row'><%= student.amount%></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="total_tution">
+        <div class='price_wrapper'>
+          <h1 id='total_price'>$<%= @grandTotal %></h1>
+          <p>*before precent $<%= @total %> </p>
+        </div>
+        <div class='controls'>
+          <a class="left-off-canvas-toggle button" href="#" >Quick Add</a>
+          <%= link_to 'Add', '/students/new', :class => 'button' %>
+          <p>Hide rows</p>
+          <div class="row main">
+            <div class='row'>
+              <label>
+                <input type="checkbox" id='rank_checkbox'>
+                Rank
+              </label>
+            </div>
+            <div class='row'>
+              <label>
+                <input type="checkbox" id='address_checkbox'>
+                Address
+              </label>
+            </div>
+            <div class="row">
+              <label>
+                <input type="checkbox" id='phone_checkbox'>
+                Phone Number
+              </label>
+            </div>
+            <div class='row'>
+              <label>
+                <input type="checkbox" id='amount_checkbox'>
+                Amount
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="exit-off-canvas"></a>
+  </div>

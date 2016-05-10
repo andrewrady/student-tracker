@@ -1,0 +1,87 @@
+<%= form_for @student do |s| %>
+  <div class='name'>
+    <p>
+      <%= s.label :name %>
+      <%= s.text_field :name %>
+    </p>
+    <p>
+      <%= s.label :phone %>
+      <%= s.text_field :phone %>
+    </p>
+
+  </div>
+
+  <div class='name'>
+    <p>
+      <%= s.label :address %>
+      <%= s.text_field :address %>
+    </p>
+
+    <p>
+      <%= s.label :city %>
+      <%= s.text_field :city %>
+    </p>
+
+  </div>
+
+  <div class='name'>
+    <p>
+      <%= s.label :gender %>
+      <%= s.select(:gender, options_for_select([['Male', 'Male'], ['Women', 'Women']], @student.gender)) %>
+    </p>
+
+    <p>
+    <%= s.label :rank %>
+    <%= s.select(:rank, options_for_select([
+                                              ['White', "white"], ['Orange', 'orange'],
+                                              ['Yellow', 'yellow'], ['Camo', 'camo'],
+                                              ['Green', 'green'], ['Purple', 'purple'],
+                                              ['Blue', 'blue'], ['Brown Rec', 'brown rec'],
+                                              ['Brown Dec', 'brown dec'], ['Red Rec', 'red rec'],
+                                              ['Red Dec', 'red dec'], ['Rec Black', 'rec black'],
+                                              ['1st degree', '1st degree'], ['2nd degree', '2nd degree'],
+                                              ['3rd degree', '3rd degree'], ['4th Degree', '4th degree']], @student.rank)) %>
+    </p>
+  </div>
+
+  <div class='name'>
+
+    <p>
+      <%= s.label :email %>
+      <%= s.text_field :email %>
+    </p>
+
+    <p>
+      <%= s.label :zip %>
+      <%= s.text_field :zip %>
+    </p>
+
+    <p>
+      <%= s.label :age %>
+      <%= s.text_field :age %>
+    </p>
+
+    <p>
+      <%= s.label :size %>
+      <%= s.text_field :size %>
+    </p>
+  </div>
+
+  <div class='contact_info'>
+    <p>
+      <%= s.label :amount %>
+      <%= s.text_field :amount %>
+    </p>
+    <p>
+      <%= s.label :status %>
+      <%= s.select(:status, options_for_select([['Prospect', 'trail'],['Active', 'active'], ['Hold', 'hold'], ['Inactive', 'quit']], @student.status)) %>
+    </p>
+  </div>
+
+  <div class="hide">
+    <%= s.label :trail %>
+    <%= s.text_field :trail %>
+  </div>
+
+  <%= s.submit :class => 'button' %>
+<% end %>

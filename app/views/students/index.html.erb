@@ -44,7 +44,7 @@
         </p>
       <% end %>
       </div>
-    </aside> 
+    </aside>
     <div class="row client-container">
       <div class="large-8 large columns">
         <%# @totalFees %>
@@ -75,7 +75,7 @@
             <% end %>
           </tbody>
         </table>
-
+        <%= will_paginate @students, :previous_label =>'Back', :next_label => 'next' %>
       </div>
       <div class="total_tution">
         <div class='price_wrapper'>

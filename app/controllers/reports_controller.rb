@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
 	layout 'student'
 	def holds
-		@students = Student.where(user_id: current_user).where('status like ?', '%hold')
+		@students = Student.where(user_id: current_user).where('status like ?', '%hold').paginate(:page => params[:page], :per_page => 20)
 
 		@precent = 0.03
 		@total = Student.where(user_id: current_user).where('status like ?', '%hold').sum(:amount)
@@ -12,10 +12,10 @@ class ReportsController < ApplicationController
 	end
 
 	def inactive
-		@students = Student.where(user_id: current_user).where('status like ?', '%quit')
+		@students = Student.where(user_id: current_user).where('status like ?', '%quit').paginate(:page => params[:page], :per_page => 20)
 	end
 
 	def trails
-		@students = Student.where(user_id: current_user).where('status like ?', '%trail')
+		@students = Student.where(user_id: current_user).where('status like ?', '%trail').paginate(:page => params[:page], :per_page => 20)
 	end
 end

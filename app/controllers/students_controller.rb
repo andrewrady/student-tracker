@@ -6,9 +6,9 @@ class StudentsController < ApplicationController
 	def deny
 		redirect_to root_path unless user_signed_in? or admin_signed_in?
 	end
-	
+
 	def index
-		@students = Student.where(user_id: current_user).where('status like ?', '%active')
+		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 20)
 
 		@precent = 0.03
 		@total = Student.where(user_id: current_user).where('status like ?', '%active').sum(:amount)

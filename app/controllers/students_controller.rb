@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
 	end
 
 	def index
-		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 20)
+		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 10)
 
 		@precent = 0.03
 		@total = Student.where(user_id: current_user).where('status like ?', '%active').sum(:amount)

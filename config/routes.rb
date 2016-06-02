@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 	get 'reports/trails'
 	get 'admin' => 'admin#index'
 	get 'admin/users'
+	get 'search' => 'static#search'
 
 	authenticated :user do
 		root 'students#index', as: 'authenticated_root'

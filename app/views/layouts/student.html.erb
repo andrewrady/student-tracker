@@ -44,6 +44,8 @@
           <li><%= link_to "Inactive", '/reports/inactive' %></li>
         </ul>
       </li>
+      <li id="mobile_add"><%= link_to 'Add', new_student_path %></li>
+      <li data-reveal-id="myModal"><a href="#">Search</a></li>
       <% if current_user.admin? %>
         <li><%= link_to "Admin", '/admin' %></li>
       <% end %>

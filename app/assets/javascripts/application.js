@@ -57,6 +57,7 @@ var ready = function() {
     var today = Date.parse('today').add(35).days();
     var finalDate = (today.getMonth()+ 1) + '/' + today.getDate() + '/' + today.getFullYear();
     $('#student_trail').val(finalDate);
+    $('.hidden').css({'display': 'block'});
   } else {
       $('#student_trail').val('');
   }
@@ -66,8 +67,10 @@ var ready = function() {
       var today = Date.parse('today').add(35).days();
       var finalDate = (today.getMonth()+ 1) + '/' + today.getDate() + '/' + today.getFullYear();
       $('#student_trail').val(finalDate);
+      $('.hidden').css({'display': 'block'});
     } else {
         $('#student_trail').val('');
+        $('.hidden').css({'display': 'none'});
     }
   });
 

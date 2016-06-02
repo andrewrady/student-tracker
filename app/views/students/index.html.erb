@@ -48,7 +48,13 @@
     <div class="row client-container">
       <div class="large-8 large columns">
         <%# @totalFees %>
-        <h1>Active Student List</h1>
+        <div class="header">
+          <h1>Active Student List</h1>
+        </div>
+        <div class='mobile_display'>
+          <p>Total Students <%= @fees %></p>
+          <p>Total Amount <%= @grandTotal %></p>
+        </div>
         <table>
           <thead>
             <tr>
@@ -81,6 +87,7 @@
         <div class='price_wrapper'>
           <h1 id='total_price'>$<%= @grandTotal %></h1>
           <p>*before precent $<%= @total %> </p>
+          <p>Total Students <%= @fees %></p>
         </div>
         <div class='controls'>
           <a class="left-off-canvas-toggle button" href="#" >Quick Add</a>
@@ -117,3 +124,5 @@
     </div>
     <a class="exit-off-canvas"></a>
   </div>
+
+  <%= render :partial => 'static/search' %>

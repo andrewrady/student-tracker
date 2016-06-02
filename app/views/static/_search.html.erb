@@ -1,0 +1,7 @@
+<div id="myModal" class="reveal-modal medium" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <%= form_tag search_path, :method => 'get', :enforce_utf8 => false do %>
+    <h3>Search</h3>
+    <%= text_field_tag :search, params[:search], placeholder: "Find Student" %>
+    <%= submit_tag "Search", :class => 'button'%>
+  <% end %>
+</div>

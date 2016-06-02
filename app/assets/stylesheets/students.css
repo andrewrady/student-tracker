@@ -90,16 +90,46 @@ nav h3 {
   float: left;
 }
 
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 1035px) {
+  .mobile_display {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1035px) {
   .total_tution,
   .age_row {
     display: none;
   }
 
+  .mobile_display {
+    display: block;
+    margin: auto;
+    width: 680px;
+  }
+
   table {
     margin-left: auto;
     margin-right: auto;
     float: none;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .header {
+    display: block;
+    margin: auto;
+    width: 680px;
+  }
+}
+
+@media screen and (min-width: 641px) {
+  #mobile_add {
+    display: none;
   }
 }
 
@@ -111,8 +141,11 @@ nav h3 {
     display: none;
   }
 
+  .mobile_display {
+    width: 345px;
+  }
+
   .columns {
     padding: 0;
   }
 }
-

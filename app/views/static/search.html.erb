@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="large-8 large columns">
+    <div class="header">
+      <h1>Results</h1>
+    </div>
+    <% if @search.present? %>
+      <table>
+        <thead>
+          <tr>
+            <th>Active Student Name</th>
+            <th class='rank_row'>Rank</th>
+            <th class='size_row'>Size</th>
+            <th class='age_row'>Age</th>
+            <th class='address_row'>Address</th>
+            <th class='phone_row'>Phone</th>
+            <th class='amount_row'>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @search.each do |search| %>
+            <tr>
+              <td><%=  link_to search.name, student_path(search) %> </td>
+              <td class='rank_row'><%=  search.rank %></td>
+              <td class='size_row'><%=  search.size %></td>
+              <td class='age_row'><%=  search.age %></td>
+              <td class='address_row'><%=  search.address %> <%= search.city %> <%= search.zip %></td>
+              <td class='phone_row'><%=  search.phone %></td>
+              <td class='amount_row'><%= search.amount%></td>
+            </tr>
+          <% end %>
+        </tbody>
+    <% else %>
+      <p>There are no students with the name <%= params[:search] %>.</p>
+    <% end %>
+  </div>
+</div>

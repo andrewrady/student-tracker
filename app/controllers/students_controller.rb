@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
 	end
 
 	def index
-		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 10)
+		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 10).order(:name)
 
 		@precent = 0.03
 		@total = Student.where(user_id: current_user).where('status like ?', '%active').sum(:amount)
@@ -16,6 +16,7 @@ class StudentsController < ApplicationController
 		@totalFees = @fees * 0.69
 		@totalPercent = @total * @precent
 		@grandTotal = @total - @totalPercent - @totalFees.round(2)
+
 	end
 
 	def show

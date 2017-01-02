@@ -76,6 +76,10 @@
       <%= s.label :status %>
       <%= s.select(:status, options_for_select([['Prospect', 'trail'],['Active', 'active'], ['Hold', 'hold'], ['Inactive', 'quit']], @student.status)) %>
     </p>
+    <p>
+     <%= s.label :shared %>
+     <%= s.check_box :shared %>
+    </p>
   </div>
 
   <div class="name hidden">

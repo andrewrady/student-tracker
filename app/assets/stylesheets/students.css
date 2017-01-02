@@ -59,6 +59,10 @@ nav h3 {
   border-radius: 8px;
 }
 
+#add_student {
+  display: none;
+}
+
 .total_tution {
   background-color: #FFFFFF;
   border: 1px solid #000000;
@@ -101,6 +105,10 @@ nav h3 {
 }
 
 @media screen and (max-width: 1035px) {
+  #add_student {
+    display: block;
+  }
+
   .total_tution,
   .age_row {
     display: none;

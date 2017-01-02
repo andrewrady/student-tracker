@@ -14,6 +14,8 @@ gem 'foundation-rails', '= 5.5.1.0'
 gem "font-awesome-rails"
 gem 'friendly_id', '~> 5.1.0'
 gem 'will_paginate', '~> 3.1.0'
+gem 'rails4-autocomplete'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

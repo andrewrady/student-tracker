@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
 //= require foundation/foundation
 //= require foundation
 //= require turbolinks
@@ -74,6 +76,12 @@ var ready = function() {
     }
   });
 
+  $('#transaction_name').on('click',function(){
+   var test = $(this).val();
+   console.log(test);
+  });
+
+ 
   $(function(){ $(document).foundation(); });
 
 $(function(){ $(document).foundation(); });

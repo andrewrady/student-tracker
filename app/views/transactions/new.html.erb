@@ -1,0 +1,22 @@
+<div class="row student">
+<h1>New Transaction</h1>
+
+
+<%= form_for @transaction do |t| %>
+
+  
+ <% options = options_from_collection_for_select(@product, 'name', 'name') %>
+ <%= t.label :name %>
+ <%= t.text_field :name, :class => 'form-control',  data: { autocomplete: autocomplete_brand_name_products_path } %>
+ 
+ <%= t.label :price %>
+ <%= t.text_field :price %>
+
+ <%= link_to('New Client', new_student_path, id: 'new') %>
+ <%# options = options_from_collection_for_select(@student, 'id', 'name') %>
+ <%# t.select :student_id, options, :class => 'form-control' %>
+
+ <%= t.submit %>
+
+<% end %>
+</div>

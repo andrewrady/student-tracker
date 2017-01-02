@@ -11,6 +11,10 @@
 			<h3>Age</h3>
 			<p><%= @student.age %></p>
 		</div>
+		<div class="student_row">
+			<h3>Shared</h3>
+			<p><%= @student.shared %></p>
+		</div>
 	</div>
 	<div class="student_studio">
 		<h2>Studio Info</h2>
@@ -39,8 +43,11 @@
 			<p><%= @student.phone %></p>
 		</div>
 	</div>
-	<div class="student_info">
-		
-	</div>
+	<!--<div class="student_info">
+		<h3>PoS History</h3>
+		<% @pos.each do |pos| %>
+			<p> Item name: <%= pos.name %> | Price: $<%= pos.price %> | <%= pos.created_at.strftime("%B %d, %Y") %></p>
+		<% end %>			
+	</div>-->
 </div>
 

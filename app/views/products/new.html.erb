@@ -1,0 +1,13 @@
+<div class="row student">
+  <h1>Add New Product</h1>
+  <%= form_for @product do |p| %>
+
+    <%= p.label :name %>
+    <%= p.text_field :name %>
+
+    <%= p.label :price %>
+    <%= p.text_field :price %>
+
+    <%= p.submit  %>
+  <% end %>
+</div>

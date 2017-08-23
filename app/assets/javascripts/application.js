@@ -14,8 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
-//= require foundation/foundation
-//= require foundation
+//= require semantic-ui
 //= require turbolinks
 //= require_tree .
 

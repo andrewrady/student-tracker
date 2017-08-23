@@ -3,9 +3,9 @@ nav h3 {
   float: left;
 }
 
-.client-nav {
+/* .client-nav {
   background-color: #227BD4;
-}
+} */
 
 .client-nav-selection li:not(.has-form) a:not(.button),
 .client-nav-selection .dropdown li:not(.has-form):not(.active) > a:not(.button),

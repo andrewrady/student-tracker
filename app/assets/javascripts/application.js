@@ -18,74 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-var ready = function() {
-  //$('#rank_checkbox, #phone_checkbox').prop('checked', true);
-  //$('.rank_row, .phone_row').hide();
+$(document).ready(function() {
+  $('.ui.dropdown').dropdown();
+});
 
-  $('#address_checkbox').on('click', function(){
-    if($('#address_checkbox').is(':checked')) {
-      $('.address_row').fadeOut('fast');
-    } else {
-      $('.address_row').fadeIn();
-    }
-  });
-
-  $('#phone_checkbox').on('click', function(){
-    if($('#phone_checkbox').is(':checked')) {
-      $('.phone_row').fadeOut('fast');
-    } else {
-      $('.phone_row').fadeIn();
-    }
-  });
-
-  $('#rank_checkbox').on('click', function(){
-    if($('#rank_checkbox').is(':checked')) {
-      $('.rank_row').fadeOut('fast');
-    } else {
-      $('.rank_row').fadeIn();
-    }
-  });
-
-  $('#amount_checkbox').on('click', function(){
-    if($('#amount_checkbox').is(':checked')) {
-      $('.amount_row').fadeOut('fast');
-    } else {
-      $('.amount_row').fadeIn();
-    }
-  });
-
-  if($('#student_status').val() == 'trail') {
-    var today = Date.parse('today').add(35).days();
-    var finalDate = (today.getMonth()+ 1) + '/' + today.getDate() + '/' + today.getFullYear();
-    $('#student_trail').val(finalDate);
-    $('.hidden').css({'display': 'block'});
-  } else {
-      $('#student_trail').val('');
-  }
-
-  $('#student_status').change(function(){
-    if($('#student_status').val() == 'trail') {
-      var today = Date.parse('today').add(35).days();
-      var finalDate = (today.getMonth()+ 1) + '/' + today.getDate() + '/' + today.getFullYear();
-      $('#student_trail').val(finalDate);
-      $('.hidden').css({'display': 'block'});
-    } else {
-        $('#student_trail').val('');
-        $('.hidden').css({'display': 'none'});
-    }
-  });
-
-  $('#transaction_name').on('click',function(){
-   var test = $(this).val();
-   console.log(test);
-  });
-
- 
-  $(function(){ $(document).foundation(); });
-
-$(function(){ $(document).foundation(); });
-
-}
-
-$(document).ready(ready);
-$(document).on('page:load', ready);

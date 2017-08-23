@@ -47,7 +47,6 @@
     </aside>
     <div class="row client-container">
       <div class="large-8 large columns">
-        <%# @totalFees %>
         <div class="header">
           <h1>Active Student List</h1>
         </div>
@@ -55,8 +54,7 @@
           <p>Total Students: <%= @studentTotal %></p>
           <p>Total Amount <%= @amountTotal %></p>
 	  <hr>
-	  <p>208 Amount: <%= @bjjTotal.round %></p>
-	  <p>ATA Amount: <%= @ataTotal.round %></p>
+	  <p>ATA Amount: <%= @total.round %></p>
         </div>
         <table>
           <thead>
@@ -89,10 +87,7 @@
       <div class="total_tution">
         <div class='price_wrapper'>
 	  <h1 id='total_price'>Amount</h1>
-          <p>208 Amount: <%= @bjjTotal.round %> | ATA Amount: <%= @ataTotal.round %></p>
-	  <p>Total Amount: <%= @amountTotal %></p>
-          <p>Transfered: <%= @sharedStudents %> | New: <%= @newStudents %></p>
-          <p>Total Students <%= @studentTotal %></p>
+	  <p>Total Amount: <%= @grandTotal %></p>
         </div>
         <div class='controls'>
           <a class="left-off-canvas-toggle button" href="#" >Quick Add</a>

@@ -1,41 +1,50 @@
-
-  <h1>Active Student List</h1>
+<h1>Students</h2>
     <div class="ui grid">
     <div class="row">
-    <div class="ten wide column ui segment">
-      <table class="ui basic table">
-        <thead>
-          <tr>
-            <th>Student</th>
-            <th class='rank_row'>Rank</th>
-            <th class='size_row'>Size</th>
-            <th class='age_row'>Age</th>
-            <th class='address_row'>Address</th>
-            <th class='phone_row'>Phone</th>
-            <th class='amount_row'>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @students.each do |student| %>
+    <div class="ten wide column">
+      <div class="ui top attached tabular menu">
+        <a class="item active">
+          Active List
+        </a>
+        <a class="item">
+          Holds
+        </a>
+      </div>
+      <div class="ui bottom attached segment">
+        <table class="ui basic table">
+          <thead>
             <tr>
-              <td><%=  link_to student.name, student_path(student) %> </td>
-              <td class='rank_row'><%=  student.rank %></td>
-              <td class='size_row'><%=  student.size %></td>
-              <td class='age_row'><%=  student.age %></td>
-              <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
-              <td class='phone_row'><%=  student.phone %></td>
-              <td class='amount_row'><%= student.amount%></td>
+              <th>Student</th>
+              <th class='rank_row'>Rank</th>
+              <th class='size_row'>Size</th>
+              <th class='age_row'>Age</th>
+              <th class='address_row'>Address</th>
+              <th class='phone_row'>Phone</th>
+              <th class='amount_row'>Amount</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= will_paginate @students, :previous_label =>'Back', :next_label => 'next' %>
+          </thead>
+          <tbody>
+            <% @students.each do |student| %>
+              <tr>
+                <td><%=  link_to student.name, student_path(student) %> </td>
+                <td class='rank_row'><%=  student.rank %></td>
+                <td class='size_row'><%=  student.size %></td>
+                <td class='age_row'><%=  student.age %></td>
+                <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
+                <td class='phone_row'><%=  student.phone %></td>
+                <td class='amount_row'><%= student.amount%></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= will_paginate @students, :previous_label =>'Back', :next_label => 'next' %>
+      </div>
       </div>
 
       <div class="four wide column ui segment dark">
         <h1>Amount</h1>
-        <p>Total Students: <%= @total %></p>
-        <p>Total Amount: <%= @grandTotal %></p>
+        <p>Total Students: <%= @totalStudents %></p>
+        <p>Total Amount: <%= @grandTotal %> (after fees)</p>
       </div>
       </div>
       </div>

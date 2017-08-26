@@ -7,62 +7,61 @@
     <title><%= content_for?(:title) ? yield(:title) : "Studio Tracker | Students" %></title>
     <link rel="canonical" href="http://www.studio-tracker.com" />
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <nav class="top-bar client-nav" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <%= link_to '/students' do  %><h3>Student Tracker</h3><% end %>
-        </li>
-         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
-
-  <section class="top-bar-section client-nav-selection">
+  <div class="ui grey inverted massive menu">
+  <%= link_to root_path, method: :get, :class => 'header item' do  %>Student Tracker<% end %>
     <!-- Right Nav Section -->
-    <ul class="right">
-      <li class="has-dropdown">
-        <%= link_to current_user.email, '#' %>
-        <ul class="dropdown">
-          <li><%= link_to 'Settings', edit_user_password_path %></li>
-          <li><%= link_to('Logout', destroy_user_session_path, :method => :delete ) %></li>
-        </ul>
-      </li>
-    </ul>
+    <div class="right menu">
+    <% if current_user.admin? %>
+      <%= link_to "Admin", '/admin', method: :get, :class => 'item' %>
+    <% end %>
+    <div class="ui  dropdown item">
+    <div class="text">Students</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="blue inverted item">
+        <%= link_to('Students', students_path, method: :get) %>
+      </div>
+    </div>
+  </div>
+  <div class="ui dropdown item">
+    <div class="text">Reports</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">
+        <%= link_to('Trails', reports_trails_path, method: :get) %>
+      </div>
+      <div class="item">
+        <%= link_to('Holds', reports_holds_path, method: :get) %>
+      </div>
+      <div class="item">
+        <%= link_to('Inactive', reports_inactive_path, method: :get) %>
+      </div>
+    </div>
+  </div>
 
-    <!-- Left Nav Section -->
-    <ul class="left">
-      <li><%# link_to('PoS', new_transaction_path) %></li>
-      <!--<li class="has-dropdown">
-        <a href="#">Products</a>
-        <ul class="dropdown">
-          <li><%= link_to "All Products", products_path %></li>
-          <li><%= link_to "Add Product", new_product_path %></li>
-        </ul>
-      </li>-->
-      <li id="add_student">
-       <%= link_to('Add Student', new_student_path)  %>
-      </li>
-      <li class="has-dropdown">
-        <a href="">Reports</a>
-        <ul class="dropdown">
-          <li><%= link_to "Trails", '/reports/trails', method: :get %></li>
-          <li><%= link_to "Holds", '/reports/holds', method: :get %></li>
-          <li><%= link_to "Inactive", '/reports/inactive', method: :get %></li>
-        </ul>
-      </li>
-      <li id="mobile_add"><%= link_to 'Add', new_student_path %></li>
-      <li data-reveal-id="myModal"><a href="#">Search</a></li>
-      <% if current_user.admin? %>
-        <li><%= link_to "Admin", '/admin', method: :get %></li>
-      <% end %>
-    </ul>
-  </section>
-</nav>
-      <%= yield %>
+      <div class="ui dropdown item">
+        <div class="text"><%= current_user.email %></div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">
+            <%= link_to('Settings', edit_user_password_path, method: :get) %>
+          </div>
+          <div class="item">
+            <%= link_to('Logout', destroy_user_session_path) %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui container">
+  <%= yield %>
+  </div>
   </body>
 </html>

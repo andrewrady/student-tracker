@@ -12,6 +12,33 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
  *= require font-awesome
  */
+ @import "semantic-ui";
+
+ .ui.menu {
+     border-radius: 0 !important;
+ }
+
+ .ui.menu .dropdown.item .menu {
+     background: #767676;
+ }
+ body {
+     background: #eaeaea;
+ }
+
+ .content {
+     background: #fff;
+     border: .6px solid #000;
+     border-radius: 5px;
+ }
+
+ .dark {
+     background: #000 !important;
+     opacity: .8;
+     margin-left: 2em !important;
+ }
+
+ .dark p, .dark h1 {
+     color: #fff;
+ }

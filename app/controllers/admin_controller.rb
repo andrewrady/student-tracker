@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 	before_filter :deny
-	layout 'admin'
+	layout 'student'
 
 	def deny
 		redirect_to root_path unless current_user.admin?

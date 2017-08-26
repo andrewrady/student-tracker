@@ -16,6 +16,13 @@
  */
  @import "semantic-ui";
 
+ .ui.menu {
+     border-radius: 0 !important;
+ }
+
+ .ui.menu .dropdown.item .menu {
+     background: #2185D0;
+ }
  body {
      background: #eaeaea;
  }

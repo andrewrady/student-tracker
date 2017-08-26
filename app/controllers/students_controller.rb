@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
 	def index
 		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 10).order(:name)
 
+		@totalStudents = Student.where(user_id: current_user).where('status like ?', '%active').count
 		#old Code to calucate total with transaction amount
 		@precent = 0.03
 		@total = Student.where(user_id: current_user).where('status like ?', '%active').sum(:amount)

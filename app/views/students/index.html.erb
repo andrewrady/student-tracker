@@ -1,128 +1,43 @@
-<div class="off-canvas-wrap" data-offcanvas>
-  <div class="inner-wrap">
-    <aside class="left-off-canvas-menu">
-      <div class='quick_add'>
-      <%= form_for :student, url: students_path do |s| %>
-        <p>
-          <%= s.label :name %>
-          <%= s.text_field :name %>
-        </p>
 
-        <p>
-          <%= s.label :amount %>
-          <%= s.text_field :amount %>
-        </p>
-
-        <p>
-          <%= s.label :rank %>
-          <%= s.select(:rank, options_for_select([
-                                                    ['White', "white"], ['Orange', 'orange'],
-                                                    ['Yellow', 'yellow'], ['Camo', 'camo'],
-                                                    ['Green', 'green'], ['Purple', 'purple'],
-                                                    ['Blue', 'blue'], ['Brown Rec', 'brown rec'],
-                                                    ['Brown Dec', 'brown dec'], ['Red Rec', 'red rec'],
-                                                    ['Red Dec', 'red dec'], ['Rec Black', 'rec black'],
-                                                    ['1st degree', '1st degree'], ['2nd degree', '2nd degree'],
-                                                    ['3rd degree', '3rd degree'], ['4th Degree', '4th degree']], 1)) %>
-        </p>
-
-        <p>
-          <%= s.label :status %>
-          <%= s.select(:status, options_for_select([['Prospect', 'trail'],['Active', 'active'], ['Hold', 'hold'], ['Inactive', 'inactive']], 1)) %>
-        </p>
-
-        <div class="hide">
-          <%= s.label :trail %>
-          <%= s.text_field :trail %>
-        </div>
-
-        <p>
-          <%= s.submit 'Add', :class => 'button quick_add_button' %>
-        </p>
-        <p class='button alert exit_button left-off-canvas-toggle button'>
-          Exit
-        </p>
-      <% end %>
-      </div>
-    </aside>
-    <div class="row client-container">
-      <div class="large-8 large columns">
-        <div class="header">
-          <h1>Active Student List</h1>
-        </div>
-        <div class='mobile_display'>
-          <p>Total Students: <%= @studentTotal %></p>
-          <p>Total Amount <%= @amountTotal %></p>
-	  <hr>
-	  <p>ATA Amount: <%= @total.round %></p>
-        </div>
-        <table>
-          <thead>
+  <h1>Active Student List</h1>
+    <div class="ui grid">
+    <div class="row">
+    <div class="ten wide column ui segment">
+      <table class="ui basic table">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th class='rank_row'>Rank</th>
+            <th class='size_row'>Size</th>
+            <th class='age_row'>Age</th>
+            <th class='address_row'>Address</th>
+            <th class='phone_row'>Phone</th>
+            <th class='amount_row'>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @students.each do |student| %>
             <tr>
-              <th>Active Student Name</th>
-              <th class='rank_row'>Rank</th>
-              <th class='size_row'>Size</th>
-              <th class='age_row'>Age</th>
-              <th class='address_row'>Address</th>
-              <th class='phone_row'>Phone</th>
-              <th class='amount_row'>Amount</th>
+              <td><%=  link_to student.name, student_path(student) %> </td>
+              <td class='rank_row'><%=  student.rank %></td>
+              <td class='size_row'><%=  student.size %></td>
+              <td class='age_row'><%=  student.age %></td>
+              <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
+              <td class='phone_row'><%=  student.phone %></td>
+              <td class='amount_row'><%= student.amount%></td>
             </tr>
-          </thead>
-          <tbody>
-            <% @students.each do |student| %>
-              <tr>
-                <td><%=  link_to student.name, student_path(student) %> </td>
-                <td class='rank_row'><%=  student.rank %></td>
-                <td class='size_row'><%=  student.size %></td>
-                <td class='age_row'><%=  student.age %></td>
-                <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
-                <td class='phone_row'><%=  student.phone %></td>
-                <td class='amount_row'><%= student.amount%></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= will_paginate @students, :previous_label =>'Back', :next_label => 'next' %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= will_paginate @students, :previous_label =>'Back', :next_label => 'next' %>
       </div>
-      <div class="total_tution">
-        <div class='price_wrapper'>
-	  <h1 id='total_price'>Amount</h1>
-	  <p>Total Amount: <%= @grandTotal %></p>
-        </div>
-        <div class='controls'>
-          <a class="left-off-canvas-toggle button" href="#" >Quick Add</a>
-          <%= link_to 'Add', '/students/new', :class => 'button' %>
-          <p>Hide rows</p>
-          <div class="row main">
-            <div class='row'>
-              <label>
-                <input type="checkbox" id='rank_checkbox'>
-                Rank
-              </label>
-            </div>
-            <div class='row'>
-              <label>
-                <input type="checkbox" id='address_checkbox'>
-                Address
-              </label>
-            </div>
-            <div class="row">
-              <label>
-                <input type="checkbox" id='phone_checkbox'>
-                Phone Number
-              </label>
-            </div>
-            <div class='row'>
-              <label>
-                <input type="checkbox" id='amount_checkbox'>
-                Amount
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <a class="exit-off-canvas"></a>
-  </div>
 
-  <%= render :partial => 'static/search' %>
+      <div class="four wide column ui segment dark">
+        <h1>Amount</h1>
+        <p>Total Students: <%= @total %></p>
+        <p>Total Amount: <%= @grandTotal %></p>
+      </div>
+      </div>
+      </div>
+  
+  <%# render :partial => 'static/search' %>

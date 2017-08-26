@@ -12,28 +12,38 @@
   </head>
 
   <body>
-  <div class="ui menu">
-  <%= link_to root_path, method: :get do  %><h3>Student Tracker</h3><% end %>
-    <div class="ui dropdown item">
-      <div class="text">Reports</div>
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item">
-          <%= link_to('Trails', reports_trails_path, method: :get) %>
-        </div>
-        <div class="item">
-          <%= link_to('Holds', reports_holds_path, method: :get) %>
-        </div>
-        <div class="item">
-          <%= link_to('Inactive', reports_inactive_path, method: :get) %>
-        </div>
-      </div>
-    </div>
+  <div class="ui blue inverted massive menu">
+  <%= link_to root_path, method: :get, :class => 'header item' do  %>Student Tracker<% end %>
+    <!-- Right Nav Section -->
+    <div class="right menu">
     <% if current_user.admin? %>
       <%= link_to "Admin", '/admin', method: :get, :class => 'item' %>
     <% end %>
-    <!-- Right Nav Section -->
-    <div class="right menu">
+    <div class="ui  dropdown item">
+    <div class="text">Students</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="blue inverted item">
+        <%= link_to('Students', students_path, method: :get) %>
+      </div>
+    </div>
+  </div>
+  <div class="ui dropdown item">
+    <div class="text">Reports</div>
+    <i class="dropdown icon"></i>
+    <div class="menu">
+      <div class="item">
+        <%= link_to('Trails', reports_trails_path, method: :get) %>
+      </div>
+      <div class="item">
+        <%= link_to('Holds', reports_holds_path, method: :get) %>
+      </div>
+      <div class="item">
+        <%= link_to('Inactive', reports_inactive_path, method: :get) %>
+      </div>
+    </div>
+  </div>
+
       <div class="ui dropdown item">
         <div class="text"><%= current_user.email %></div>
         <i class="dropdown icon"></i>
@@ -50,8 +60,8 @@
 
   </div>
 
-
-
-      <%# yield %>
+  <div class="ui container">
+  <%= yield %>
+  </div>
   </body>
 </html>

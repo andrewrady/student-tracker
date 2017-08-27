@@ -14,7 +14,7 @@
 		  <tbody>
 		    <% @users.each do |user| %>
 		      <tr>
-		        <td><%= link_to user.email, users_admin_path(user) %> </td>
+		        <td><%# link_to user.email, users_admin_path(user) %> </td>
 						<td class='username_row'><%=  user.username %></td>
 		        <td class='rank_row'><%=  user.id %></td>
 		        <td class='size_row'><%=  user.created_at %></td>

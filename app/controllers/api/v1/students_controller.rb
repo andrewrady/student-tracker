@@ -12,7 +12,7 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     def show
-        @student = Student.find(params[:id])
+        @student = Student.where(:user_id=>params[:user_id]).where(:id=>params[:id])
         render json: @student
     end
 
@@ -24,6 +24,14 @@ class Api::V1::StudentsController < ApplicationController
         else
             render json: { errors: error.message }, status: 422
         end
+    end
+
+    def update
+
+    end
+
+    def destroy
+
     end
 
     private

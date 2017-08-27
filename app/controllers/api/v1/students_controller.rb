@@ -1,8 +1,13 @@
 class Api::V1::StudentsController < ApplicationController
     respond_to :json
+    #before_action :deny
+
+	def deny
+		redirect_to root_path unless user_signed_in?
+	end
 
     def index
-        @students = Student.where('status like ?', '%active')
+        @students = Student.where('user_id like ?', params[:user_id]).where('status like ?', '%active')
         render json: @students
     end
 

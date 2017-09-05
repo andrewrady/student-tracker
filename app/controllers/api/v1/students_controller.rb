@@ -27,11 +27,20 @@ class Api::V1::StudentsController < ApplicationController
     end
 
     def update
+        @student = Student.where(:user_id=>params[:user_id]).where(:id=>params[:id]).first
 
+        if @student.update(student_params)
+            render json: @student, status: 201
+        else
+            render json: { errors: error.message }, state: 422
+        end
     end
 
     def destroy
+        @student = Student.where(:user_id=>params[:user_id]).where(:id=>params[:id]).first
 
+        @student.destroy
+        head 204 
     end
 
     private

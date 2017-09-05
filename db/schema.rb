@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102192601) do
+ActiveRecord::Schema.define(version: 20170905040719) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -62,9 +62,8 @@ ActiveRecord::Schema.define(version: 20170102192601) do
     t.string   "status"
     t.string   "rank"
     t.integer  "size"
-    t.integer  "amount"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "phone"
     t.string   "trail"
@@ -72,7 +71,6 @@ ActiveRecord::Schema.define(version: 20170102192601) do
     t.string   "gender"
     t.string   "email"
     t.string   "slug"
-    t.boolean  "shared",     default: false
   end
 
   add_index "students", ["slug"], name: "index_students_on_slug", unique: true

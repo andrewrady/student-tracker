@@ -10,14 +10,13 @@ class StudentsController < ApplicationController
 	def index
 		@students = Student.where(user_id: current_user).where('status like ?', '%active').paginate(:page => params[:page], :per_page => 10).order(:name)
 
+		@contractTotal = HeadOfHouse.all().where(user_id: current_user).count
 		@totalStudents = Student.where(user_id: current_user).where('status like ?', '%active').count
 		#old Code to calucate total with transaction amount
-		@precent = 0.03
-		@total = Student.where(user_id: current_user).where('status like ?', '%active').sum(:amount)
-		@fees = Student.where(user_id: current_user).where('status like ?', '%active').count(:amount)
-		@totalFees = @fees * 0.69
-		@totalPercent = @total * @precent
-		@grandTotal = @total - @totalPercent - @totalFees.round(2)
+		# @precent = 0.03
+		# @totalFees = @fees * 0.69
+		# @totalPercent = @total * @precent
+		# @grandTotal = @total - @totalPercent - @totalFees.round(2)
 
 	end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905040719) do
+ActiveRecord::Schema.define(version: 20170905042719) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20170905040719) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "head_of_houses", force: :cascade do |t|
+    t.string   "name"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
@@ -62,8 +69,8 @@ ActiveRecord::Schema.define(version: 20170905040719) do
     t.string   "status"
     t.string   "rank"
     t.integer  "size"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
     t.string   "phone"
     t.string   "trail"
@@ -71,8 +78,10 @@ ActiveRecord::Schema.define(version: 20170905040719) do
     t.string   "gender"
     t.string   "email"
     t.string   "slug"
+    t.integer  "head_of_houses_id"
   end
 
+  add_index "students", ["head_of_houses_id"], name: "index_students_on_head_of_houses_id"
   add_index "students", ["slug"], name: "index_students_on_slug", unique: true
 
   create_table "transactions", force: :cascade do |t|

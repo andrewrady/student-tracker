@@ -16,6 +16,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'rails4-autocomplete'
 gem 'jquery-ui-rails'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'webpacker', '~> 3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -7,7 +7,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "Studio Tracker | Students" %></title>
     <link rel="canonical" href="http://www.studio-tracker.com" />
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -63,5 +62,6 @@
   <div class="ui container">
   <%= yield %>
   </div>
+  <%= javascript_pack_tag 'application' %>
   </body>
 </html>

@@ -20,7 +20,6 @@
               <th class='age_row'>Age</th>
               <th class='address_row'>Address</th>
               <th class='phone_row'>Phone</th>
-              <th class='amount_row'>Amount</th>
             </tr>
           </thead>
           <tbody>
@@ -32,7 +31,6 @@
                 <td class='age_row'><%=  student.age %></td>
                 <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
                 <td class='phone_row'><%=  student.phone %></td>
-                <td class='amount_row'><%= student.amount%></td>
               </tr>
             <% end %>
           </tbody>
@@ -44,7 +42,7 @@
       <div class="four wide column ui segment dark">
         <h1>Amount</h1>
         <p>Total Students: <%= @totalStudents %></p>
-        <p>Total Amount: <%= @grandTotal %> (after fees)</p>
+        <p>Total Contracts: <%= @contractTotal %></p>
       </div>
       </div>
       </div>

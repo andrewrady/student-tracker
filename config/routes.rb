@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 		namespace :v1 do
 			resources :users, :only => [:index, :show] do 
 				resources :students, :only => [:index, :show, :create, :update, :destroy]
+				resources :contracts, :only => [:index, :show, :create, :update, :destroy]
 			end
 		end
 	end

@@ -1,5 +1,6 @@
 class Student < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :head_of_house
 	has_many :transactions
 
 	extend FriendlyId

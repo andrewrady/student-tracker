@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170102192601) do
+ActiveRecord::Schema.define(version: 20170905072205) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20170102192601) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "head_of_houses", force: :cascade do |t|
+    t.string   "name"
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "head_of_houses", ["user_id"], name: "index_head_of_houses_on_user_id"
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
@@ -62,9 +72,8 @@ ActiveRecord::Schema.define(version: 20170102192601) do
     t.string   "status"
     t.string   "rank"
     t.integer  "size"
-    t.integer  "amount"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
     t.string   "phone"
     t.string   "trail"
@@ -72,9 +81,10 @@ ActiveRecord::Schema.define(version: 20170102192601) do
     t.string   "gender"
     t.string   "email"
     t.string   "slug"
-    t.boolean  "shared",     default: false
+    t.integer  "head_of_house_id"
   end
 
+  add_index "students", ["head_of_house_id"], name: "index_students_on_head_of_house_id"
   add_index "students", ["slug"], name: "index_students_on_slug", unique: true
 
   create_table "transactions", force: :cascade do |t|

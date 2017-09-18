@@ -31,7 +31,7 @@
  .content {
      background: #fff;
      border: .6px solid #000;
-     border-radius: 5px;
+    //  border-radius: 5px;
  }
 
  .dark {
@@ -48,3 +48,22 @@
  .ui.modal {
      display: block;
  }
+
+ /* Student Component */
+ .ui.modal {
+     top: 25%;
+ }
+ .ui.modal .content {
+     border: 0;
+ }
+ .ui .modal .header {
+    overflow: hidden !important;
+}
+
+.ui .modal .header h1 {
+    float: left !important;
+}
+
+.ui .modal .header i {
+    float: right !important;
+}

@@ -5,7 +5,6 @@ import axios from 'axios';
 Vue.use(Vuex);
 
 const state = {
-    //states
     userId: '',
     error: '',
     students: [],
@@ -13,7 +12,6 @@ const state = {
 }
 
 const mutations = {
-    //changes to state
     setError: ( state, payload ) => {
         state.error = payload;
     },

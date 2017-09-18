@@ -26,8 +26,7 @@ export default {
     },
     computed: {
       ...mapState([
-        'showAdd',
-        'students'
+        'showAdd'
       ])
     },
     methods: {

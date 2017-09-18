@@ -2,7 +2,6 @@
     <div class="ui grid">
     <div class="row">
     <div class="ten wide column">
-      <student-cmp></student-cmp>
       <div class="ui top attached tabular menu">
         <a class="item active">
           Active List
@@ -11,33 +10,7 @@
           Holds
         </a>
       </div>
-      <div class="ui bottom attached segment">
-        <table class="ui basic table">
-          <thead>
-            <tr>
-              <th>Student</th>
-              <th class='rank_row'>Rank</th>
-              <th class='size_row'>Size</th>
-              <th class='age_row'>Age</th>
-              <th class='address_row'>Address</th>
-              <th class='phone_row'>Phone</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @students.each do |student| %>
-              <tr>
-                <td><%=  link_to student.name, student_path(student) %> </td>
-                <td class='rank_row'><%=  student.rank %></td>
-                <td class='size_row'><%=  student.size %></td>
-                <td class='age_row'><%=  student.age %></td>
-                <td class='address_row'><%=  student.address %> <%= student.city %> <%= student.zip %></td>
-                <td class='phone_row'><%=  student.phone %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= will_paginate @students, :previous_label =>'Back', :next_label => 'next' %>
-      </div>
+      <student-cmp></student-cmp>
       </div>
 
       <div class="four wide column ui segment dark">

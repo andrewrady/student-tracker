@@ -9,7 +9,7 @@ function createVueStore(store){
 Vue.use(vueCustomElement);
 
 import studentCmp from './StudentCmp.vue';
-import studentStore from './store/store';
+import studentStore from './store/store.js';
 
 Vue.customElement('student-cmp', {
     beforeCreate: function() {

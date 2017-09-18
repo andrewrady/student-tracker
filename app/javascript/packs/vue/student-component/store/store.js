@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 const state = {
     //states
+    userId: '',
     error: '',
     students: [],
     showAdd: false,
@@ -15,6 +16,9 @@ const mutations = {
     //changes to state
     setError: ( state, payload ) => {
         state.error = payload;
+    },
+    setUserId: ( state, payload ) => {
+        state.userId = payload;
     },
     toggleShow: ( state, payload ) => {
         state.showAdd = payload;
@@ -27,7 +31,7 @@ const mutations = {
 const actions = {
     //api calls
     populateStudents: ({ commit, state }) => {
-        axios({method: 'get', url: 'http://localhost:3000/api/v1/users/1/students'})
+        axios({method: 'get', url: `http://localhost:3000/api/v1/users/${state.userId}/students`})
             .then(res => {
                 commit('setStudentResults', res.data)
             })

@@ -15,5 +15,9 @@ Vue.customElement('student-cmp', {
     beforeCreate: function() {
         this.$store = createVueStore(studentStore);
     },
+    props: ['userId'],
+    created: function() {
+        this.$store.commit('setUserId', this.userId)
+    },  
     render: h => h(studentCmp)
 });

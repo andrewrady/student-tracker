@@ -8,12 +8,16 @@ const state = {
     //states
     error: '',
     students: [],
+    showAdd: false,
 }
 
 const mutations = {
     //changes to state
     setError: ( state, payload ) => {
         state.error = payload;
+    },
+    toggleShow: ( state, payload ) => {
+        state.showAdd = payload;
     },
     setStudentResults: (state, payload) => {
         state.students = payload;

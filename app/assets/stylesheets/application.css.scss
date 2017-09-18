@@ -23,6 +23,7 @@
  .ui.menu .dropdown.item .menu {
      background: #767676;
  }
+
  body {
      background: #eaeaea;
  }
@@ -42,4 +43,8 @@
 
  .dark p, .dark h1 {
      color: #fff;
+ }
+
+ .ui.modal {
+     display: block;
  }

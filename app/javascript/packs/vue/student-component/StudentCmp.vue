@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div v-if="showAdd">
-      <add-cmp></add-cmp>
+    <div >
+      <transition class="slide">
+        <add-cmp v-if="showAdd"></add-cmp>
+      </transition>
     </div>
     <div class="ui bottom attached segment">
       <div class="add" @click="toggleAdd">

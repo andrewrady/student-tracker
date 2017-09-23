@@ -1,31 +1,33 @@
 <template>
     <div class="ui dimmer modals page transition visible active">
-        <div class="ui modal form">
+        <div class="ui modal form add-modal">
             <div class="header">
                 <h1>Add Student</h1>
                 <i class="remove icon" @click="closeAdd"></i>
             </div>
-            <div class="ui steps">
-                <a class="active step">
-                    <div class="content">
-                        <div class="title">Student Info</div>
-                        <div class="description">Basic information</div>
-                    </div>
-                </a>
-                <a class="step">
-                    <div class="content">
-                        <div class="title">Additional Info</div>
-                        <div class="description">Uniform</div>
-                    </div>
-                </a>
-                <a class="step">
-                    <div class="content">
-                        <div class="title">Contract</div>
-                        <div class="description">Add/Connect contract</div>
-                    </div>
-                </a>
+            <div class="current">
+                <div class="ui steps">
+                    <a class="step" v-bind:class="step == 1 ? 'active' : ''">
+                        <div class="content">
+                            <div class="title">Student Info</div>
+                            <div class="description">Basic information</div>
+                        </div>
+                    </a>
+                    <a class="step" v-bind:class="step == 2 ? 'active' : ''">
+                        <div class="content">
+                            <div class="title">Additional Info</div>
+                            <div class="description">Uniform</div>
+                        </div>
+                    </a>
+                    <a class="step" v-bind:class="step == 3 ? 'active' : ''">>
+                        <div class="content">
+                            <div class="title">Contract</div>
+                            <div class="description">Add/Connect contract</div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="content" v-if="step == 1">
+            <div class="content content-form" v-if="step == 1">
                 <label>Name</label>
                 <input type="text" placeholder="Name" v-model="name">
                 <label>Address</label>
@@ -37,7 +39,7 @@
                 <label>Phone Number</label>
                 <input type="text" placeholder="Number" v-model="number">
             </div>
-            <div class="content" v-if="step == 2">
+            <div class="content content-form" v-if="step == 2">
                 <label>Rank</label>
                 <input type="text" placeholder="White" v-model="rank">
                 <label>Size</label>
@@ -50,7 +52,7 @@
                 <label>Email</label>
                 <input type="email" placeholder="Email" v-model="email">
             </div>
-            <div class="content" v-if="step == 3">
+            <div class="content content-form" v-if="step == 3">
                 <p>Search For Head of House Hold</p>
                 <div v-if="search">
                     <label>Seach</label>
@@ -60,14 +62,12 @@
                     <select v-model="hoh">
                         <option v-for="(head, index) in headOfHouse" :key="index" :value="head.id">{{ head.name }}</option>
                     </select>
-                    <label>Amount</label>
-                    <input type="text" placeholder="Amount" v-model="amount">
                 </div>
             </div>
             <div class="footer">
-                <button class="negative ui button" @click="decrementStep" v-if="step > 1">Previous Step</button>
-                <button class="positive ui button" @click="create" v-if="step == 3">Add</button>
-                <button class="positive ui button" @click="incrementStep" v-if="step < 3">Next Step</button>
+                <button class="ui yellow basic button" @click="decrementStep" :disabled="step <= 1">Previous Step</button>
+                <button class="ui primary basic button" @click="create" :disabled="step !== 3">Add</button>
+                <button class="ui positive basic button" @click="incrementStep" :disabled="step >= 3">Next Step</button>
 
             </div>
         </div>
@@ -94,7 +94,6 @@ export default {
             gender: '',
             email: '',
             hoh: '',
-            amount: 0
         }
     },
     computed: {

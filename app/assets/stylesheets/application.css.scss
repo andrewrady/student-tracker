@@ -15,6 +15,7 @@
  *= require font-awesome
  */
  @import "semantic-ui";
+ @import "animations";
 
  .ui.menu {
      border-radius: 0 !important;
@@ -66,6 +67,21 @@
 
 .ui .modal .header i {
     float: right !important;
+}
+
+.add-modal {
+    height: 566px;
+}
+
+.add-modal .current {
+    display: block;
+    margin: auto;
+    margin-top: 1em; 
+    width: max-content;
+}
+
+.add-modal .content-form {
+    height: 335px;
 }
 
 .footer  {

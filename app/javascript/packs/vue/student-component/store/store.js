@@ -45,7 +45,10 @@ const actions = {
     populateHeadOfHouse: ({ commit, state }) => {
         axios({method: 'get', url: `http://localhost:3000/api/v1/users/${state.userId}/contracts`})
             .then(res => {
-                commit('setHeadOfHouse', res.data);
+                let house = res.data.map(head => {
+                    return { id: head.id, name: head.name }
+                })
+                commit('setHeadOfHouse', house);
             })
             .catch(err => {
                 commit('setError', err.message);
@@ -57,6 +60,16 @@ const actions = {
             .then(() => {
                 dispatch('populateStudents');
                 commit('toggleShow', false);
+            })
+            .catch(err => {
+                commit('setError', err.message);
+                throw err;
+            })
+    },
+    deleteStudent: ({commit, state, dispatch}, payload ) => {
+        axios({method: 'delete', url: `http://localhost:3000/api/v1/users/${state.userId}/students/${payload}`})
+            .then(() => {
+                dispatch('populateStudents')
             })
             .catch(err => {
                 commit('setError', err.message);

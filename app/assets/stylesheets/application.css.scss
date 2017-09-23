@@ -51,7 +51,7 @@
 
  /* Student Component */
  .ui.modal {
-     top: 25%;
+     top: 5%;
  }
  .ui.modal .content {
      border: 0;
@@ -74,4 +74,14 @@
 
 .ui.modal button {
     margin: 10px 0;
+}
+
+.student-list .header:hover {
+    cursor: pointer;
+}
+
+.add {
+    display: block;
+    margin: 5px 0;
+    text-align: right;
 }

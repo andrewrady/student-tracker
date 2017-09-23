@@ -4,7 +4,7 @@
         <add-cmp ></add-cmp>
       </div>
       <div class="ui bottom attached segment">
-        <div class="right" @click="toggleAdd">
+        <div class="add" @click="toggleAdd">
           Add
           <i class="plus icon"></i>
         </div>
@@ -26,7 +26,7 @@ export default {
     },
     computed: {
       ...mapState([
-        'showAdd'
+        'showAdd',
       ])
     },
     methods: {

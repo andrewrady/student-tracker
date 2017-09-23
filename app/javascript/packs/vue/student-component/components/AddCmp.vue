@@ -5,8 +5,27 @@
                 <h1>Add Student</h1>
                 <i class="remove icon" @click="closeAdd"></i>
             </div>
+            <div class="ui steps">
+                <a class="active step">
+                    <div class="content">
+                        <div class="title">Student Info</div>
+                        <div class="description">Basic information</div>
+                    </div>
+                </a>
+                <a class="step">
+                    <div class="content">
+                        <div class="title">Additional Info</div>
+                        <div class="description">Uniform</div>
+                    </div>
+                </a>
+                <a class="step">
+                    <div class="content">
+                        <div class="title">Contract</div>
+                        <div class="description">Add/Connect contract</div>
+                    </div>
+                </a>
+            </div>
             <div class="content" v-if="step == 1">
-                <p>Step 1</p>
                 <label>Name</label>
                 <input type="text" placeholder="Name" v-model="name">
                 <label>Address</label>
@@ -19,7 +38,6 @@
                 <input type="text" placeholder="Number" v-model="number">
             </div>
             <div class="content" v-if="step == 2">
-                <p>Step 2</p>
                 <label>Rank</label>
                 <input type="text" placeholder="White" v-model="rank">
                 <label>Size</label>
@@ -33,7 +51,6 @@
                 <input type="email" placeholder="Email" v-model="email">
             </div>
             <div class="content" v-if="step == 3">
-                <p>Step 3</p>
                 <p>Search For Head of House Hold</p>
                 <div v-if="search">
                     <label>Seach</label>

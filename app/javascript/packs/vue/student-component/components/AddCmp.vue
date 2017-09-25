@@ -7,19 +7,19 @@
             </div>
             <div class="current">
                 <div class="ui steps">
-                    <a class="step" v-bind:class="step == 1 ? 'active' : ''">
+                    <a class="step" @click="moveStep(1)" v-bind:class="step == 1 ? 'active' : ''">
                         <div class="content">
                             <div class="title">Student Info</div>
                             <div class="description">Basic information</div>
                         </div>
                     </a>
-                    <a class="step" v-bind:class="step == 2 ? 'active' : ''">
+                    <a class="step" @click="moveStep(2)" v-bind:class="step == 2 ? 'active' : ''">
                         <div class="content">
                             <div class="title">Additional Info</div>
                             <div class="description">Uniform</div>
                         </div>
                     </a>
-                    <a class="step" v-bind:class="step == 3 ? 'active' : ''">>
+                    <a class="step" @click="moveStep(3)" v-bind:class="step == 3 ? 'active' : ''">>
                         <div class="content">
                             <div class="title">Contract</div>
                             <div class="description">Add/Connect contract</div>
@@ -127,6 +127,9 @@ export default {
             if (this.step > 1) {
                 this.step--;
             }
+        },
+        moveStep(number){
+            this.step = number;
         },
         addContract() {
             this.$store.commit('toggleContract', true);

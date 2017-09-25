@@ -10,6 +10,7 @@ const state = {
     students: [],
     headOfHouse: [],
     showAdd: false,
+    showContract: false
 }
 
 const mutations = {
@@ -21,6 +22,9 @@ const mutations = {
     },
     toggleShow: ( state, payload ) => {
         state.showAdd = payload;
+    },
+    toggleContract: ( state, payload ) => {
+        state.showContract = payload;
     },
     setStudentResults: (state, payload) => {
         state.students = payload;
@@ -70,6 +74,17 @@ const actions = {
         axios({method: 'delete', url: `http://localhost:3000/api/v1/users/${state.userId}/students/${payload}`})
             .then(() => {
                 dispatch('populateStudents')
+            })
+            .catch(err => {
+                commit('setError', err.message);
+                throw err;
+            })
+    },
+    addContracts: ({commit, state, dispatch }, payload) => {
+        axios({method: 'post', url: `http://localhost:3000/api/v1/users/${state.userId}/contracts`, data: payload})
+            .then(() => {
+                dispatch('populateHeadOfHouse');
+                commit('toggleContract', false)
             })
             .catch(err => {
                 commit('setError', err.message);

@@ -49,6 +49,7 @@ export default {
   computed: {
     ...mapState([
       'showAdd',
+      'showContact',
       'students'
     ])
   },

@@ -62,24 +62,32 @@
                     <select v-model="hoh">
                         <option v-for="(head, index) in headOfHouse" :key="index" :value="head.id">{{ head.name }}</option>
                     </select>
+                    <h3>Add Head of House</h3>
+                    <button class="ui primary basic button" @click="addContract">Add</button>
                 </div>
             </div>
             <div class="footer">
                 <button class="ui yellow basic button" @click="decrementStep" :disabled="step <= 1">Previous Step</button>
                 <button class="ui primary basic button" @click="create" :disabled="step !== 3">Add</button>
                 <button class="ui positive basic button" @click="incrementStep" :disabled="step >= 3">Next Step</button>
-
             </div>
+        </div>
+        <div v-if="showContract">
+            <contract-cmp :userId="userId"></contract-cmp>
         </div>
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import contractCmp from './ContractCmp.vue';
 
 export default {
     name: 'AddStudent',
     props: ['addStatus'],
+    components: {
+        contractCmp
+    },
     data() {
         return {
             step: 1,
@@ -98,6 +106,7 @@ export default {
     },
     computed: {
         ...mapState([
+            'showContract',
             'headOfHouse',
             'userId'
         ])
@@ -118,6 +127,9 @@ export default {
             if (this.step > 1) {
                 this.step--;
             }
+        },
+        addContract() {
+            this.$store.commit('toggleContract', true);
         },
         create() {
             this.$store.dispatch('addStudent', {

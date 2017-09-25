@@ -40,6 +40,6 @@ class Api::V1::ContractsController < ApplicationController
 
     private
         def contract_params
-            params.permit(:name, :amount, :user_id)
+            params.permit(:name, :amount, :user_id, :head_of_house_id)
         end
 end

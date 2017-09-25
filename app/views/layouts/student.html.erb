@@ -7,13 +7,12 @@
     <title><%= content_for?(:title) ? yield(:title) : "Studio Tracker | Students" %></title>
     <link rel="canonical" href="http://www.studio-tracker.com" />
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
   <div class="ui grey inverted massive menu">
-  <%= link_to root_path, method: :get, :class => 'header item' do  %>Student Tracker<% end %>
+  <%= link_to root_path, method: :get, :class => 'header item' do  %>MA Vue<% end %>
     <!-- Right Nav Section -->
     <div class="right menu">
     <% if current_user.admin? %>
@@ -63,5 +62,6 @@
   <div class="ui container">
   <%= yield %>
   </div>
+  <%= javascript_pack_tag 'application' %>
   </body>
 </html>

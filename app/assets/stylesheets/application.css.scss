@@ -15,6 +15,7 @@
  *= require font-awesome
  */
  @import "semantic-ui";
+ @import "animations";
 
  .ui.menu {
      border-radius: 0 !important;
@@ -23,6 +24,7 @@
  .ui.menu .dropdown.item .menu {
      background: #767676;
  }
+
  body {
      background: #eaeaea;
  }
@@ -30,7 +32,7 @@
  .content {
      background: #fff;
      border: .6px solid #000;
-     border-radius: 5px;
+    //  border-radius: 5px;
  }
 
  .dark {
@@ -43,3 +45,59 @@
  .dark p, .dark h1 {
      color: #fff;
  }
+
+ .ui.modal {
+     display: block;
+ }
+
+ /* Student Component */
+ .ui.modal {
+     top: 5%;
+ }
+ .ui.modal .content {
+     border: 0;
+ }
+ .ui .modal .header {
+    overflow: hidden !important;
+}
+
+.ui .modal .header h1 {
+    float: left !important;
+}
+
+.ui .modal .header i {
+    float: right !important;
+}
+
+.add-modal {
+    height: 566px;
+}
+
+.add-modal .current {
+    display: block;
+    margin: auto;
+    margin-top: 1em; 
+    width: max-content;
+}
+
+.add-modal .content-form {
+    height: 335px;
+}
+
+.footer  {
+    text-align: center;
+}
+
+.ui.modal button {
+    margin: 10px 0;
+}
+
+.student-list .header:hover {
+    cursor: pointer;
+}
+
+.add {
+    display: block;
+    margin: 5px 0;
+    text-align: right;
+}

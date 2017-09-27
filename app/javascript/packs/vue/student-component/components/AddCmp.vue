@@ -19,7 +19,7 @@
                             <div class="description">Uniform</div>
                         </div>
                     </a>
-                    <a class="step" @click="moveStep(3)" v-bind:class="step == 3 ? 'active' : ''">>
+                    <a class="step" @click="moveStep(3)" v-bind:class="step == 3 ? 'active' : ''">
                         <div class="content">
                             <div class="title">Contract</div>
                             <div class="description">Add/Connect contract</div>

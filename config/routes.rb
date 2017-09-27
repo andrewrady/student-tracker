@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-	resources :students
+	resources :students, :only => [:index, :show]
+	resources :contracts, :only => [:index, :show]
 	devise_for :users
 	#resources :users_admin, :controller => 'users'
 	#resources :transactions
@@ -18,9 +19,6 @@ Rails.application.routes.draw do
 	end
 
 	get 'static/index'
-	get 'reports/holds'
-	get 'reports/inactive'
-	get 'reports/trails'
 	get 'admin' => 'admin#index'
 	get 'admin/users'
 	get 'search' => 'static#search'

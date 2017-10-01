@@ -31,7 +31,7 @@
 
  .content {
      background: #fff;
-     border: .6px solid #000;
+    //  border: .6px solid #000;
     //  border-radius: 5px;
  }
 
@@ -104,9 +104,42 @@
 
 
 /*contract component */
-.contract .segment {
-    padding: 5px 0;
+.contract .ui.accordion {
+    border-radius: 0 !important;
+    margin: 2rem 0;
+    padding: 0;
 }
-.contract .segment:hover {
+.contract .ui.accordion .title:hover,
+.contract i:hover {
+    cursor: pointer;
+}
+
+.ui.accordion .title ~ .content {
+    display: block !important;
+    margin-top: 14px;
+    padding: 0;
+}
+
+.contract-tile .content {
+    box-shadow: 1px 0px 0px 0 rgba(34, 36, 38, 0.15), 0px 0px 0px 1px rgba(34, 36, 38, 0.15);
+}
+
+.contract-name {
+    margin-left: 2.5rem;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.add-contract .header {
+    overflow: hidden
+}
+
+.add-contract .header i:hover {
     cursor: pointer;
 }

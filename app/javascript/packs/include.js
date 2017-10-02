@@ -1,3 +1,4 @@
 // imports vue components
 
-import './vue/student-component/main.js';
+import './vue/student-component/main';
+import './vue/contract-component/main';
